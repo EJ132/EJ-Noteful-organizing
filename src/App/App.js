@@ -35,9 +35,7 @@ class App extends Component {
             .then(([notes, folders]) => {
                 this.setState({notes, folders});
             })
-            .catch(error => {
-                Promise.reject(error);
-            });
+            .catch(error => Promise.reject(error) );
     }
 
     handleDeleteNote = noteId => {
