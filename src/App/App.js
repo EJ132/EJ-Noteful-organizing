@@ -30,13 +30,13 @@ class App extends Component {
                 if (!foldersRes.ok)
                     return foldersRes.json().then(e => Promise.reject(e));
 
-                return Promise.all([notesRes.json(), foldersRes.json()]);
+                return;
             })
             .then(([notes, folders]) => {
                 this.setState({notes, folders});
             })
             .catch(error => {
-                console.error({error});
+                Promise.reject(error);
             });
     }
 
